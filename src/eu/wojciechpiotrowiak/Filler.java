@@ -17,21 +17,33 @@ public class Filler {
     }
 
     private void writeToDisk(String directory, long sizeInBytes) throws IOException {
-        while(sizeInBytes>1_000_000) {
-            String name = directory + File.separator + System.nanoTime();
-            try (
-                    FileOutputStream outputStream = new FileOutputStream(name);
-                    BufferedOutputStream out = new BufferedOutputStream(outputStream)) {
-                int oneMB = 1_000_000;
-                sizeInBytes-=oneMB;
-                byte[] buffer = new byte[oneMB];
-                for (int i = 0; i < oneMB; i++) {
-                    buffer[i] = 1;
-                }
-                out.write(buffer, 0, oneMB);
-                out.flush();
-            }
+        int oneMB = 1_000_000;
+        while (sizeInBytes > oneMB) {
+            sizeInBytes -= oneMB;
+            saveBytesIntoFile(directory, oneMB);
         }
+        int leftover = (int) (oneMB - sizeInBytes);
+        if (leftover > 0) {
+            saveBytesIntoFile(directory, leftover);
+        }
+    }
 
+    private void saveBytesIntoFile(String directory, int oneMB) throws IOException {
+        String name = directory + File.separator + System.nanoTime();
+        try (
+                FileOutputStream outputStream = new FileOutputStream(name);
+                BufferedOutputStream out = new BufferedOutputStream(outputStream)) {
+
+            writeBufferIntoStream(oneMB, out);
+            out.flush();
+        }
+    }
+
+    private void writeBufferIntoStream(int length, BufferedOutputStream out) throws IOException {
+        byte[] buffer = new byte[length];
+        for (int i = 0; i < length; i++) {
+            buffer[i] = 1;
+        }
+        out.write(buffer, 0, length);
     }
 }
