@@ -6,10 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00349085-fc65-41a1-a313-6596f068d448" name="Default" comment="">
+    <list default="true" id="00349085-fc65-41a1-a313-6596f068d448" name="Default" comment="correct way of progress bar usage">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/test/FillerTest.java" afterPath="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
     </list>
     <ignored path="diskfiller.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Filler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Filler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="115">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FillerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FillerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,8 +122,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" />
         <option value="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" />
       </list>
     </option>
   </component>
@@ -312,7 +311,7 @@
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="diskfiller" />
   </component>
-  <component name="RunManager" selected="JUnit.FillerTest (1)">
+  <component name="RunManager" selected="Maven.package">
     <configuration default="false" name="FillerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="diskfiller" />
@@ -721,9 +720,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.FillerTest (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.FillerTest.testLessThanOneMB" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.FillerTest.testBiggerThanOneMB (1)" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.FillerTest.testBiggerThanOneMB (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.FillerTest (1)" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.FillerTest.testLessThanOneMB" />
         <item index="3" class="java.lang.String" itemvalue="Application.Main" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.FillerTest" />
       </list>
@@ -775,13 +774,24 @@
       <option name="project" value="LOCAL" />
       <updated>1462021434269</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="failing tests fixed">
+      <created>1462041796187</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1462041796187</updated>
+    </task>
+    <task id="LOCAL-00007" summary="correct way of progress bar usage">
+      <created>1462043939618</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1462043939618</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FillerTest_(1) - 2016.04.30 at 20h 28m 30s.xml">
-      <configuration name="FillerTest (1)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FillerTest_(1) - 2016.04.30 at 20h 31m 32s.xml">
       <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
@@ -795,6 +805,9 @@
       <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FillerTest_testBiggerThanOneMB_(1) - 2016.04.30 at 20h 38m 15s.xml">
+      <configuration name="FillerTest.testBiggerThanOneMB (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FillerTest_testBiggerThanOneMB_(1) - 2016.04.30 at 20h 52m 48s.xml">
       <configuration name="FillerTest.testBiggerThanOneMB (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FillerTest_testLessThanOneMB - 2016.04.30 at 20h 31m 14s.xml">
@@ -815,15 +828,15 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -854,7 +867,8 @@
     <MESSAGE value="progress bar used instead stopwatch, FAT32 bug fixed" />
     <MESSAGE value="refactor" />
     <MESSAGE value="failing tests fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="failing tests fixed" />
+    <MESSAGE value="correct way of progress bar usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct way of progress bar usage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -870,18 +884,6 @@
           <line>35</line>
           <properties />
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/test/FillerTest.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="9" />
@@ -971,20 +973,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="272">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/me/tongfei/progressbar/0.4.0/progressbar-0.4.0.jar!/me/tongfei/progressbar/ProgressBar.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

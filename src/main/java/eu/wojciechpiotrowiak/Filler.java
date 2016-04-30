@@ -6,7 +6,7 @@ import me.tongfei.progressbar.ProgressBar;
 import java.io.*;
 
 public class Filler {
-    int FILE_SIZE = 2_400_000;
+    private int FILE_SIZE = 2_400_000;
 
     public void fillDirectory(String path) throws IOException {
         File file = new File(path);
@@ -40,7 +40,7 @@ public class Filler {
             sizeInBytes -= FILE_SIZE;
             saveBytesIntoFile(directory, FILE_SIZE);
 
-            pb.stepBy(1);
+            pb.step();
         }
         long freeSpace = new File(directory).getFreeSpace();
         int leftover = (int) (sizeInBytes);
@@ -49,6 +49,7 @@ public class Filler {
             leftover = (int) freeSpace;
         }
         saveBytesIntoFile(directory, leftover);
+        pb.step();
         pb.stop();
     }
 
