@@ -1,12 +1,18 @@
 package eu.wojciechpiotrowiak;
 
 
+import eu.wojciechpiotrowiak.notifications.Notificator;
 import me.tongfei.progressbar.ProgressBar;
 
 import java.io.*;
 
 public class Filler {
     private int FILE_SIZE = 2_400_000;
+    private Notificator notificator;
+
+    public Filler(Notificator notificator) {
+        this.notificator=notificator;
+    }
 
     public void fillDirectory(String path) throws IOException {
         File file = new File(path);
@@ -34,13 +40,12 @@ public class Filler {
         }
 
         int fileNumber = (int)Math.ceil(sizeInBytes/FILE_SIZE);
-        ProgressBar pb = new ProgressBar("Filling data", fileNumber);
-        pb.start();
+        notificator.start(fileNumber);
         while (sizeInBytes > FILE_SIZE) {
             sizeInBytes -= FILE_SIZE;
             saveBytesIntoFile(directory, FILE_SIZE);
 
-            pb.step();
+            notificator.step();
         }
         long freeSpace = new File(directory).getFreeSpace();
         int leftover = (int) (sizeInBytes);
@@ -49,8 +54,8 @@ public class Filler {
             leftover = (int) freeSpace;
         }
         saveBytesIntoFile(directory, leftover);
-        pb.step();
-        pb.stop();
+        notificator.step();
+        notificator.stop();
     }
 
     private void saveBytesIntoFile(String directory, int totalLength) throws IOException {
@@ -66,9 +71,6 @@ public class Filler {
 
     private void writeBufferIntoStream(int totalLength, BufferedOutputStream out) throws IOException {
         byte[] buffer = new byte[totalLength];
-        for (int i = 0; i < totalLength; i++) {
-            buffer[i] = 1;
-        }
         out.write(buffer, 0, totalLength);
     }
 }

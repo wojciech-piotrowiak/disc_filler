@@ -1,5 +1,8 @@
 package eu.wojciechpiotrowiak;
 
+import eu.wojciechpiotrowiak.notifications.Notificator;
+import eu.wojciechpiotrowiak.notifications.impl.ConsoleNotificator;
+
 import java.io.*;
 
 public class Main {
@@ -8,7 +11,8 @@ public class Main {
         if (args.length == 0)
             return;
         try {
-            Filler filler = new Filler();
+            Notificator notificator=new ConsoleNotificator();
+            Filler filler = new Filler(notificator);
             final String directory = args[0];
             if (args.length == 1) {
                 filler.fillDirectory(directory);
