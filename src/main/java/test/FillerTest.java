@@ -43,7 +43,7 @@ public class FillerTest {
     }
 
     private int currentFileNumber() {
-        File file = new File(getTargetPath());
+        File file = new File(getTargetPath()+File.separator+"fill");
         return file.listFiles().length;
     }
 

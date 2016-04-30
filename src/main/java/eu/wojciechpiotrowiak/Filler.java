@@ -6,7 +6,7 @@ import me.tongfei.progressbar.ProgressBar;
 import java.io.*;
 
 public class Filler {
-    int fileSize = 2_400_000;
+    int FILE_SIZE = 2_400_000;
 
     public void fillDirectory(String path) throws IOException {
         File file = new File(path);
@@ -27,27 +27,29 @@ public class Filler {
         //FAT32 has a limit of files (170) on base level, putting files into new catalog fix this problem
         String dedicatedCatalog = directory + File.separator + "fill";
         File newDir = new File(dedicatedCatalog);
-        if (newDir.mkdir()) {
+        if (newDir.exists() || newDir.mkdir()) {
             directory = dedicatedCatalog;
         } else {
             return;
         }
 
+        long percent = ((FILE_SIZE * 100) / sizeInBytes);
         ProgressBar pb = new ProgressBar("Filling data", 100);
         pb.start();
-        while (sizeInBytes > fileSize) {
-            sizeInBytes -= fileSize;
-            saveBytesIntoFile(directory, fileSize);
-            pb.step();
+        while (sizeInBytes > FILE_SIZE) {
+            sizeInBytes -= FILE_SIZE;
+            percent += percent;
+            saveBytesIntoFile(directory, FILE_SIZE);
+            pb.stepBy((int) percent);
         }
-        long freeSpace = new File("").getFreeSpace();
-        int leftover = (int) (fileSize - sizeInBytes);
+        long freeSpace = new File(directory).getFreeSpace();
+        int leftover = (int) (sizeInBytes);
+
         if (leftover > freeSpace) {
             leftover = (int) freeSpace;
         }
-        if (leftover > 0) {
-            saveBytesIntoFile(directory, leftover);
-        }
+        saveBytesIntoFile(directory, leftover);
+
         pb.stop();
     }
 
