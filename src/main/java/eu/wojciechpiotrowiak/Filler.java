@@ -13,7 +13,10 @@ public class Filler {
     }
 
     public void fillDirectoryWithDefinedLength(String path, long length) throws IOException {
-        writeToDisk(path, length);
+        File file = new File(path);
+        if (file.isDirectory()) {
+            writeToDisk(path, length);
+        }
     }
 
     private void writeToDisk(String directory, long sizeInBytes) throws IOException {
