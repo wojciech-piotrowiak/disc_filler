@@ -33,14 +33,14 @@ public class Filler {
             return;
         }
 
-        long percent = ((FILE_SIZE * 100) / sizeInBytes);
-        ProgressBar pb = new ProgressBar("Filling data", 100);
+        int fileNumber = (int)Math.ceil(sizeInBytes/FILE_SIZE);
+        ProgressBar pb = new ProgressBar("Filling data", fileNumber);
         pb.start();
         while (sizeInBytes > FILE_SIZE) {
             sizeInBytes -= FILE_SIZE;
-            percent += percent;
             saveBytesIntoFile(directory, FILE_SIZE);
-            pb.stepBy((int) percent);
+
+            pb.stepBy(1);
         }
         long freeSpace = new File(directory).getFreeSpace();
         int leftover = (int) (sizeInBytes);
@@ -49,7 +49,6 @@ public class Filler {
             leftover = (int) freeSpace;
         }
         saveBytesIntoFile(directory, leftover);
-
         pb.stop();
     }
 
