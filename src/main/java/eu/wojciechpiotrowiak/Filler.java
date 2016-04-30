@@ -1,6 +1,8 @@
 package eu.wojciechpiotrowiak;
 
 
+import me.tongfei.progressbar.ProgressBar;
+
 import java.io.*;
 
 public class Filler {
@@ -20,15 +22,28 @@ public class Filler {
     }
 
     private void writeToDisk(String directory, long sizeInBytes) throws IOException {
+        //FAT32 has a limit of files (170) on base level, putting files into new catalog fix this problem
+        String dedicatedCatalog = directory + File.separator + "fill";
+        File newDir = new File(dedicatedCatalog);
+        if (newDir.mkdir()) {
+            directory = dedicatedCatalog;
+        } else {
+            return;
+        }
+
+        ProgressBar pb = new ProgressBar("Test", 100);
+        pb.start();
         int oneMB = 1_000_000;
         while (sizeInBytes > oneMB) {
             sizeInBytes -= oneMB;
             saveBytesIntoFile(directory, oneMB);
+            pb.step();
         }
         int leftover = (int) (oneMB - sizeInBytes);
         if (leftover > 0) {
             saveBytesIntoFile(directory, leftover);
         }
+        pb.stop();
     }
 
     private void saveBytesIntoFile(String directory, int oneMB) throws IOException {
