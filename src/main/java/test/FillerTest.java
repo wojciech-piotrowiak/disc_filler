@@ -1,6 +1,7 @@
 package test;
 
 import eu.wojciechpiotrowiak.Filler;
+import eu.wojciechpiotrowiak.notifications.Notificator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,12 +12,11 @@ import java.nio.file.Paths;
 
 
 public class FillerTest {
-
     @Test
     public void testLessThanOneMB() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
-        Filler filler = new Filler();
+        Filler filler = new Filler(new EmptyNotificator());
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 10);
 
         Assert.assertEquals(++fileNumberBeforeFill, currentFileNumber());
@@ -26,7 +26,7 @@ public class FillerTest {
     public void testBiggerThanOneMB() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
-        Filler filler = new Filler();
+        Filler filler = new Filler(new EmptyNotificator());
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 10_000_000);
 
         Assert.assertTrue(currentFileNumber() - ++fileNumberBeforeFill > 1);
@@ -36,7 +36,7 @@ public class FillerTest {
     public void testNotADirectoryDefined() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
-        Filler filler = new Filler();
+        Filler filler = new Filler(new EmptyNotificator());
         filler.fillDirectoryWithDefinedLength(getTestPath(), 10_000_000);
 
         Assert.assertEquals(fileNumberBeforeFill,currentFileNumber());
@@ -44,6 +44,11 @@ public class FillerTest {
 
     private int currentFileNumber() {
         File file = new File(getTargetPath()+File.separator+"fill");
+        if(!file.exists())
+        {
+            //clean instalation might not have 'fill' dir for the first test. This catalog will be created by program
+            file.mkdir();
+        }
         return file.listFiles().length;
     }
 
@@ -56,5 +61,23 @@ public class FillerTest {
         Path currentRelativePath = Paths.get("");
         return currentRelativePath.toAbsolutePath().toString() + File.separator + "src" + File.separator +
                 "test" + File.separator + "test" + File.separator + "example.txt";
+    }
+
+    private class EmptyNotificator implements Notificator{
+
+        @Override
+        public void start(int steps) {
+
+        }
+
+        @Override
+        public void step() {
+
+        }
+
+        @Override
+        public void stop() {
+
+        }
     }
 }
