@@ -11,7 +11,7 @@ public class Filler {
     private Notificator notificator;
 
     public Filler(Notificator notificator) {
-        this.notificator=notificator;
+        this.notificator = notificator;
     }
 
     public void fillDirectory(String path) throws IOException {
@@ -39,9 +39,9 @@ public class Filler {
             return;
         }
 
-        int fileNumber = (int)Math.ceil(sizeInBytes/FILE_SIZE);
+        int fileNumber = (int) Math.ceil(sizeInBytes / FILE_SIZE);
         notificator.start(fileNumber);
-        while (sizeInBytes > FILE_SIZE) {
+        while (sizeInBytes >= FILE_SIZE) {
             sizeInBytes -= FILE_SIZE;
             saveBytesIntoFile(directory, FILE_SIZE);
 
@@ -53,8 +53,11 @@ public class Filler {
         if (leftover > freeSpace) {
             leftover = (int) freeSpace;
         }
-        saveBytesIntoFile(directory, leftover);
-        notificator.step();
+        if (leftover > 0) {
+            saveBytesIntoFile(directory, leftover);
+            notificator.step();
+        }
+
         notificator.stop();
     }
 
