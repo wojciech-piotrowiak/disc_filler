@@ -19,7 +19,12 @@ public class Main {
                 filler.fillDirectory(directory);
             } else if (args.length == 2) {
                 final String length = args[1];
-                filler.fillDirectoryWithDefinedLength(directory, Long.valueOf(length));
+                filler.fillDirectoryWithDefinedLength(directory, Integer.valueOf(length));
+            }
+            else if (args.length == 3) {
+                final String length = args[1];
+                final String fileSize = args[2];
+                filler.fillDirectoryWithDefinedLengthAndFileSize(directory, Integer.valueOf(length),Integer.valueOf(fileSize));
             }
 
         } catch (IOException e) {

@@ -10,7 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class DefaultFiller implements Filler {
-    private int FILE_SIZE = 2_400_000;
+    private int DEFAULT_FILE_SIZE = 2_400_000;
+    private Integer customFileSize;
     private Notificator notificator;
 
     public DefaultFiller(Notificator notificator) {
@@ -20,19 +21,28 @@ public class DefaultFiller implements Filler {
     public void fillDirectory(String path) throws IOException {
         File file = new File(path);
         if (file.isDirectory()) {
-            long freeSpace = file.getFreeSpace();
-            writeToDisk(path, freeSpace);
+            Long freeSpace = file.getFreeSpace();
+            writeToDisk(path, freeSpace.intValue());
         }
     }
 
-    public void fillDirectoryWithDefinedLength(String path, long length) throws IOException {
+    public void fillDirectoryWithDefinedLength(String path, Integer length) throws IOException {
         File file = new File(path);
         if (file.isDirectory()) {
             writeToDisk(path, length);
         }
     }
 
-    private void writeToDisk(String directory, long sizeInBytes) throws IOException {
+    @Override
+    public void fillDirectoryWithDefinedLengthAndFileSize(String path, Integer length, Integer fileSize) throws IOException {
+        File file = new File(path);
+        if (file.isDirectory()) {
+            setFileSize(fileSize);
+            writeToDisk(path, length);
+        }
+    }
+
+    private void writeToDisk(String directory, Integer sizeInBytes) throws IOException {
         //FAT32 has a limit of files (170) on base level, putting files into new catalog fix this problem
         String dedicatedCatalog = directory + File.separator + "fill";
         File newDir = new File(dedicatedCatalog);
@@ -42,16 +52,16 @@ public class DefaultFiller implements Filler {
             return;
         }
 
-        int fileNumber = (int) Math.ceil(sizeInBytes / FILE_SIZE);
+        int fileNumber = (int) Math.ceil(sizeInBytes / getFileSize());
         notificator.start(fileNumber);
-        while (sizeInBytes >= FILE_SIZE) {
-            sizeInBytes -= FILE_SIZE;
-            saveBytesIntoFile(directory, FILE_SIZE);
+        while (sizeInBytes >= getFileSize()) {
+            sizeInBytes -= getFileSize();
+            saveBytesIntoFile(directory, getFileSize());
 
             notificator.step();
         }
         long freeSpace = new File(directory).getFreeSpace();
-        int leftover = (int) (sizeInBytes);
+        int leftover = sizeInBytes;
 
         if (leftover > freeSpace) {
             leftover = (int) freeSpace;
@@ -70,13 +80,24 @@ public class DefaultFiller implements Filler {
                 FileOutputStream outputStream = new FileOutputStream(name);
                 BufferedOutputStream out = new BufferedOutputStream(outputStream)) {
 
-            writeBufferIntoStream(totalLength, out);
+            writeBufferIntoStream(out, totalLength);
             out.flush();
         }
     }
 
-    private void writeBufferIntoStream(int totalLength, BufferedOutputStream out) throws IOException {
+    private void writeBufferIntoStream(BufferedOutputStream out, int totalLength) throws IOException {
         byte[] buffer = new byte[totalLength];
         out.write(buffer, 0, totalLength);
+    }
+
+    public Integer getFileSize() {
+        if (customFileSize == null) {
+            customFileSize = DEFAULT_FILE_SIZE;
+        }
+        return customFileSize;
+    }
+
+    public void setFileSize(Integer customFileSize) {
+        this.customFileSize = customFileSize;
     }
 }

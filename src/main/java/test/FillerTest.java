@@ -53,27 +53,46 @@ public class FillerTest {
     }
 
     @Test
-    public void partsNumberTestWithSmallFile() throws IOException
-    {
+    public void partsNumberTestWithSmallFile() throws IOException {
         //less than normal file size
         TestNotificator notificator = new TestNotificator();
         DefaultFiller filler = new DefaultFiller(notificator);
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_399_00);
 
-       Assert.assertEquals(0,notificator.stepsDeclared);
-       Assert.assertEquals(1,notificator.stepsMarked);
+        Assert.assertEquals(0, notificator.stepsDeclared);
+        Assert.assertEquals(1, notificator.stepsMarked);
     }
 
     @Test
-    public void partsNumberTestWithFileEqualToDefault() throws IOException
-    {
+    public void partsNumberTestWithFileEqualToDefault() throws IOException {
         //less than normal file size
         TestNotificator notificator = new TestNotificator();
         DefaultFiller filler = new DefaultFiller(notificator);
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_400_000);
 
-        Assert.assertEquals(1,notificator.stepsDeclared);
-        Assert.assertEquals(1,notificator.stepsMarked);
+        Assert.assertEquals(1, notificator.stepsDeclared);
+        Assert.assertEquals(1, notificator.stepsMarked);
+    }
+
+    @Test
+    public void customFileSizeTest() throws IOException {
+        //requested file length is less than default file size
+        TestNotificator notificator = new TestNotificator();
+        DefaultFiller filler = new DefaultFiller(notificator);
+        filler.fillDirectoryWithDefinedLengthAndFileSize(getTargetPath(), 10, 22);
+
+        Assert.assertEquals(0, notificator.stepsDeclared);
+        Assert.assertEquals(1, notificator.stepsMarked);
+    }
+
+    @Test
+    public void testNotADirectoryCustomFileSize() throws IOException {
+        int fileNumberBeforeFill = currentFileNumber();
+
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
+        filler.fillDirectoryWithDefinedLengthAndFileSize(getTestPath(), 10, 10);
+
+        Assert.assertEquals(fileNumberBeforeFill, currentFileNumber());
     }
 
     private int currentFileNumber() {
