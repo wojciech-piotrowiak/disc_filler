@@ -3,11 +3,13 @@ package eu.wojciechpiotrowiak.filler.impl;
 
 import eu.wojciechpiotrowiak.filler.Filler;
 import eu.wojciechpiotrowiak.notifications.Notificator;
-import me.tongfei.progressbar.ProgressBar;
 
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-public class DefaultFiller implements Filler{
+public class DefaultFiller implements Filler {
     private int FILE_SIZE = 2_400_000;
     private Notificator notificator;
 

@@ -1,20 +1,19 @@
 package eu.wojciechpiotrowiak;
 
+import eu.wojciechpiotrowiak.filler.Filler;
 import eu.wojciechpiotrowiak.filler.impl.DefaultFiller;
-import eu.wojciechpiotrowiak.notifications.Notificator;
 import eu.wojciechpiotrowiak.notifications.impl.ConsoleNotificator;
 
-import java.io.*;
+import java.io.IOException;
 
 public class Main {
 
+    private static Filler filler=new DefaultFiller(new ConsoleNotificator());
 
     public static void main(String[] args) {
         if (args.length == 0)
             return;
         try {
-            Notificator notificator=new ConsoleNotificator();
-            DefaultFiller filler = new DefaultFiller(notificator);
             final String directory = args[0];
             if (args.length == 1) {
                 filler.fillDirectory(directory);
@@ -26,5 +25,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setFiller(Filler inputFiller)
+    {
+        filler=inputFiller;
     }
 }
