@@ -1,4 +1,4 @@
-package test;
+
 
 import eu.wojciechpiotrowiak.filler.impl.DefaultFiller;
 import eu.wojciechpiotrowiak.notifications.Notificator;
