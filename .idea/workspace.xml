@@ -6,13 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00349085-fc65-41a1-a313-6596f068d448" name="Default" comment="custom file size option">
+    <list default="true" id="00349085-fc65-41a1-a313-6596f068d448" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.travis.yaml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/Filler.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/Filler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/test/FillerTest.java" afterPath="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/test/MainTest.java" afterPath="$PROJECT_DIR$/src/main/java/test/MainTest.java" />
     </list>
     <ignored path="diskfiller.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,15 +44,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DefaultFiller.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java">
+      <file leaf-file-name=".travis.yaml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="100" column="3" selection-start-line="100" selection-start-column="3" selection-end-line="100" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3312#3313#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,6 +91,7 @@
         <option value="$PROJECT_DIR$/src/main/java/test/MainTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java" />
+        <option value="$PROJECT_DIR$/.travis.yaml" />
       </list>
     </option>
   </component>
@@ -152,6 +146,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="disc_filler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="disc_filler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="disc_filler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -690,7 +694,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462273456853</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="custom file size option">
+      <created>1462290004998</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1462290004999</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -730,7 +741,7 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2658789" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2658789" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -739,7 +750,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19985358" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26207906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26207906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -857,8 +868,18 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3312#3313#0" expanded="true" />
+            <marker date="1462289992723" expanded="true" signature="52:264" placeholder="..." />
+            <marker date="1462289992723" expanded="false" signature="483:494" placeholder=" { " />
+            <marker date="1462289992723" expanded="false" signature="525:531" placeholder=" }" />
+            <marker date="1462289992723" expanded="true" signature="595:785" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="882:1008" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="1148:1309" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="1398:2405" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="2496:2837" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="2940:3037" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="3072:3206" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="3259:3270" placeholder=" { " />
+            <marker date="1462289992723" expanded="true" signature="3307:3313" placeholder=" }" />
           </folding>
         </state>
       </provider>
@@ -947,8 +968,18 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3312#3313#0" expanded="true" />
+            <marker date="1462289992723" expanded="true" signature="52:264" placeholder="..." />
+            <marker date="1462289992723" expanded="false" signature="483:494" placeholder=" { " />
+            <marker date="1462289992723" expanded="false" signature="525:531" placeholder=" }" />
+            <marker date="1462289992723" expanded="true" signature="595:785" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="882:1008" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="1148:1309" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="1398:2405" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="2496:2837" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="2940:3037" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="3072:3206" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="3259:3270" placeholder=" { " />
+            <marker date="1462289992723" expanded="true" signature="3307:3313" placeholder=" }" />
           </folding>
         </state>
       </provider>
@@ -1170,9 +1201,27 @@
         <state relative-caret-position="359">
           <caret line="100" column="3" selection-start-line="100" selection-start-column="3" selection-end-line="100" selection-end-column="3" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3312#3313#0" expanded="true" />
+            <marker date="1462289992723" expanded="true" signature="52:264" placeholder="..." />
+            <marker date="1462289992723" expanded="false" signature="483:494" placeholder=" { " />
+            <marker date="1462289992723" expanded="false" signature="525:531" placeholder=" }" />
+            <marker date="1462289992723" expanded="true" signature="595:785" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="882:1008" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="1148:1309" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="1398:2405" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="2496:2837" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="2940:3037" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="3072:3206" placeholder="{...}" />
+            <marker date="1462289992723" expanded="true" signature="3259:3270" placeholder=" { " />
+            <marker date="1462289992723" expanded="true" signature="3307:3313" placeholder=" }" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
