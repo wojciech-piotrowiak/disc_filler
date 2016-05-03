@@ -6,9 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00349085-fc65-41a1-a313-6596f068d448" name="Default" comment="new tests + fixes">
+    <list default="true" id="00349085-fc65-41a1-a313-6596f068d448" name="Default" comment="tests+structure refactor">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/Filler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/test/MainTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" afterPath="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/test/FillerTest.java" afterPath="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
     </list>
     <ignored path="diskfiller.iws" />
@@ -23,10 +26,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/disc_filler$All_in_diskfiller.coverage" NAME="All in diskfiller Coverage Results" MODIFIED="1462267979021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/disc_filler$eu_wojciechpiotrowiak_in_diskfiller.coverage" NAME="eu.wojciechpiotrowiak in diskfiller Coverage Results" MODIFIED="1462267944143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>eu.wojciechpiotrowiak.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/disc_filler$FillerTest__1_.coverage" NAME="FillerTest (1) Coverage Results" MODIFIED="1462267832524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.*</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="diskfiller" />
   </component>
@@ -35,18 +51,18 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="75">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Filler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
+      <file leaf-file-name="Filler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/Filler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="120">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,17 +70,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FillerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
+      <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3152#3153#0" expanded="true" />
-                <element signature="e#3202#3203#0" expanded="true" />
-                <element signature="e#3250#3251#0" expanded="true" />
-                <element signature="e#3290#3291#0" expanded="true" />
+                <element signature="e#162#163#0" expanded="true" />
+                <element signature="e#209#210#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultFiller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FillerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#3569#3570#0" expanded="true" />
+                <element signature="e#3619#3620#0" expanded="true" />
+                <element signature="e#3667#3668#0" expanded="true" />
+                <element signature="e#3707#3708#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,8 +116,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -98,10 +139,14 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
         <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/notifications/Notificator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/notifications/impl/ConsoleNotificator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/FillerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/MainTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/Filler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/Filler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java" />
       </list>
     </option>
   </component>
@@ -156,6 +201,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="disc_filler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -300,7 +349,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="notifications" />
+              <option name="myItemId" value="filler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="disc_filler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="disc_filler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wojciechpiotrowiak" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -313,7 +396,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -337,58 +420,6 @@
       <option name="MAIN_CLASS_NAME" value="test.FillerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="FillerTest.fileNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="diskfiller" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.FillerTest" />
-      <option name="METHOD_NAME" value="fileNumberTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="FillerTest.partsNumberTestWithSmallFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="diskfiller" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.FillerTest" />
-      <option name="METHOD_NAME" value="partsNumberTestWithSmallFile" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -441,6 +472,53 @@
       <option name="MAIN_CLASS_NAME" value="test.FillerTest" />
       <option name="METHOD_NAME" value="testLessThanOneMB" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="eu.wojciechpiotrowiak in diskfiller" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="eu.wojciechpiotrowiak.filler.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="diskfiller" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="eu.wojciechpiotrowiak" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="All in diskfiller" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="diskfiller" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -735,18 +813,18 @@
       <item index="1" class="java.lang.String" itemvalue="Maven.clean install" />
       <item index="2" class="java.lang.String" itemvalue="Maven.package" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.FillerTest (1)" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.FillerTest.fileNumberTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.FillerTest.partsNumberTestWithSmallFile" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.FillerTest.partsNumberTestWithFileEqualToDefault" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.FillerTest.testLessThanOneMB" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.FillerTest.partsNumberTestWithFileEqualToDefault" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.FillerTest.testLessThanOneMB" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.eu.wojciechpiotrowiak in diskfiller" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.All in diskfiller" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.FillerTest (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.FillerTest.testLessThanOneMB" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.FillerTest.partsNumberTestWithFileEqualToDefault" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.FillerTest.partsNumberTestWithSmallFile" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.FillerTest.fileNumberTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in diskfiller" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.eu.wojciechpiotrowiak in diskfiller" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.FillerTest.testLessThanOneMB" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.FillerTest.partsNumberTestWithFileEqualToDefault" />
       </list>
     </recent_temporary>
   </component>
@@ -824,27 +902,34 @@
       <option name="project" value="LOCAL" />
       <updated>1462113328830</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new tests + fixes">
+      <created>1462217636994</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1462217636994</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="All_in_diskfiller - 2016.05.03 at 11h 33m 09s.xml">
+      <configuration name="All in diskfiller" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="FillerTest_(1) - 2016.05.02 at 21h 27m 36s.xml">
       <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FillerTest_(1) - 2016.05.02 at 21h 31m 55s.xml">
       <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FillerTest_fileNumberTest - 2016.05.02 at 21h 14m 51s.xml">
-      <configuration name="FillerTest.fileNumberTest" configurationId="JUnit" />
+    <history-entry file="FillerTest_(1) - 2016.05.03 at 11h 30m 39s.xml">
+      <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FillerTest_fileNumberTest - 2016.05.02 at 21h 18m 03s.xml">
-      <configuration name="FillerTest.fileNumberTest" configurationId="JUnit" />
+    <history-entry file="FillerTest_(1) - 2016.05.03 at 11h 56m 02s.xml">
+      <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FillerTest_partsNumberTestWithFileEqualToDefault - 2016.05.02 at 21h 20m 59s.xml">
-      <configuration name="FillerTest.partsNumberTestWithFileEqualToDefault" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FillerTest_partsNumberTestWithFileEqualToDefault - 2016.05.02 at 21h 23m 45s.xml">
-      <configuration name="FillerTest.partsNumberTestWithFileEqualToDefault" configurationId="JUnit" />
+    <history-entry file="FillerTest_(1) - 2016.05.03 at 12h 16m 39s.xml">
+      <configuration name="FillerTest (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FillerTest_partsNumberTestWithFileEqualToDefault - 2016.05.02 at 21h 25m 17s.xml">
       <configuration name="FillerTest.partsNumberTestWithFileEqualToDefault" configurationId="JUnit" />
@@ -852,11 +937,11 @@
     <history-entry file="FillerTest_partsNumberTestWithFileEqualToDefault - 2016.05.02 at 21h 27m 00s.xml">
       <configuration name="FillerTest.partsNumberTestWithFileEqualToDefault" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FillerTest_partsNumberTestWithSmallFile - 2016.05.02 at 21h 20m 25s.xml">
-      <configuration name="FillerTest.partsNumberTestWithSmallFile" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FillerTest_testLessThanOneMB - 2016.05.02 at 21h 30m 18s.xml">
       <configuration name="FillerTest.testLessThanOneMB" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="eu_wojciechpiotrowiak_in_diskfiller - 2016.05.03 at 11h 32m 28s.xml">
+      <configuration name="eu.wojciechpiotrowiak in diskfiller" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -864,12 +949,13 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26634768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26634768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32695374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -929,7 +1015,8 @@
     <MESSAGE value="interface for notifications introduced" />
     <MESSAGE value="test fix" />
     <MESSAGE value="new tests + fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="new tests + fixes" />
+    <MESSAGE value="tests+structure refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests+structure refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -941,20 +1028,20 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java</url>
-          <line>42</line>
+          <url>file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java</url>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java</url>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/test/FillerTest.java</url>
-          <line>62</line>
+          <line>72</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -989,7 +1076,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1020,11 +1107,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3152#3153#0" expanded="true" />
-            <element signature="e#3202#3203#0" expanded="true" />
-            <element signature="e#3250#3251#0" expanded="true" />
-            <element signature="e#3290#3291#0" expanded="true" />
+            <element signature="e#3569#3570#0" expanded="true" />
+            <element signature="e#3619#3620#0" expanded="true" />
+            <element signature="e#3667#3668#0" expanded="true" />
+            <element signature="e#3707#3708#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1061,7 +1147,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1092,11 +1178,10 @@
         <state relative-caret-position="540">
           <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3152#3153#0" expanded="true" />
-            <element signature="e#3202#3203#0" expanded="true" />
-            <element signature="e#3250#3251#0" expanded="true" />
-            <element signature="e#3290#3291#0" expanded="true" />
+            <element signature="e#3569#3570#0" expanded="true" />
+            <element signature="e#3619#3620#0" expanded="true" />
+            <element signature="e#3667#3668#0" expanded="true" />
+            <element signature="e#3707#3708#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1160,14 +1245,6 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/me/tongfei/progressbar/0.4.0/progressbar-0.4.0.jar!/me/tongfei/progressbar/ProgressBar.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1192,26 +1269,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3152#3153#0" expanded="true" />
-            <element signature="e#3202#3203#0" expanded="true" />
-            <element signature="e#3250#3251#0" expanded="true" />
-            <element signature="e#3290#3291#0" expanded="true" />
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Filler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="75">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/Filler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/wojciechpiotrowiak/filler/impl/DefaultFiller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/FillerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#3569#3570#0" expanded="true" />
+            <element signature="e#3619#3620#0" expanded="true" />
+            <element signature="e#3667#3668#0" expanded="true" />
+            <element signature="e#3707#3708#0" expanded="true" />
           </folding>
         </state>
       </provider>

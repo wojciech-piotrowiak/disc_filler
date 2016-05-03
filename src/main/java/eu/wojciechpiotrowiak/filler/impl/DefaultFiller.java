@@ -1,16 +1,17 @@
-package eu.wojciechpiotrowiak;
+package eu.wojciechpiotrowiak.filler.impl;
 
 
+import eu.wojciechpiotrowiak.filler.Filler;
 import eu.wojciechpiotrowiak.notifications.Notificator;
 import me.tongfei.progressbar.ProgressBar;
 
 import java.io.*;
 
-public class Filler {
+public class DefaultFiller implements Filler{
     private int FILE_SIZE = 2_400_000;
     private Notificator notificator;
 
-    public Filler(Notificator notificator) {
+    public DefaultFiller(Notificator notificator) {
         this.notificator = notificator;
     }
 

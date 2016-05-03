@@ -1,6 +1,6 @@
 package test;
 
-import eu.wojciechpiotrowiak.Filler;
+import eu.wojciechpiotrowiak.filler.impl.DefaultFiller;
 import eu.wojciechpiotrowiak.notifications.Notificator;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class FillerTest {
     public void testLessThanOneMB() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
-        Filler filler = new Filler(new TestNotificator());
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 10);
 
         Assert.assertEquals(++fileNumberBeforeFill, currentFileNumber());
@@ -26,18 +26,28 @@ public class FillerTest {
     public void testBiggerThanOneMB() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
-        Filler filler = new Filler(new TestNotificator());
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 10_000_000);
 
         Assert.assertTrue(currentFileNumber() - ++fileNumberBeforeFill > 1);
     }
 
     @Test
-    public void testNotADirectoryDefined() throws IOException {
+    public void testNotADirectoryDefinedLength() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
-        Filler filler = new Filler(new TestNotificator());
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
         filler.fillDirectoryWithDefinedLength(getTestPath(), 10_000_000);
+
+        Assert.assertEquals(fileNumberBeforeFill, currentFileNumber());
+    }
+
+    @Test
+    public void testNotADirectory() throws IOException {
+        int fileNumberBeforeFill = currentFileNumber();
+
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
+        filler.fillDirectory(getTestPath());
 
         Assert.assertEquals(fileNumberBeforeFill, currentFileNumber());
     }
@@ -47,7 +57,7 @@ public class FillerTest {
     {
         //less than normal file size
         TestNotificator notificator = new TestNotificator();
-        Filler filler = new Filler(notificator);
+        DefaultFiller filler = new DefaultFiller(notificator);
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_399_00);
 
        Assert.assertEquals(0,notificator.stepsDeclared);
@@ -59,7 +69,7 @@ public class FillerTest {
     {
         //less than normal file size
         TestNotificator notificator = new TestNotificator();
-        Filler filler = new Filler(notificator);
+        DefaultFiller filler = new DefaultFiller(notificator);
         filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_400_000);
 
         Assert.assertEquals(1,notificator.stepsDeclared);
