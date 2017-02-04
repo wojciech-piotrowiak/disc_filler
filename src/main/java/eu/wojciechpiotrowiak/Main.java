@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Main {
 
-    private static Filler filler=new DefaultFiller(new ConsoleNotificator());
+    private static Filler filler = new DefaultFiller(new ConsoleNotificator());
 
     public static void main(String[] args) {
         if (args.length == 0)
@@ -20,11 +20,10 @@ public class Main {
             } else if (args.length == 2) {
                 final String length = args[1];
                 filler.fillDirectoryWithDefinedLength(directory, Integer.valueOf(length));
-            }
-            else if (args.length == 3) {
+            } else if (args.length == 3) {
                 final String length = args[1];
                 final String fileSize = args[2];
-                filler.fillDirectoryWithDefinedLengthAndFileSize(directory, Integer.valueOf(length),Integer.valueOf(fileSize));
+                filler.fillDirectoryWithDefinedLengthAndFileSize(directory, Integer.valueOf(length), Integer.valueOf(fileSize));
             }
 
         } catch (IOException e) {
@@ -32,8 +31,7 @@ public class Main {
         }
     }
 
-    public static void setFiller(Filler inputFiller)
-    {
-        filler=inputFiller;
+    public static void setFiller(Filler inputFiller) {
+        filler = inputFiller;
     }
 }

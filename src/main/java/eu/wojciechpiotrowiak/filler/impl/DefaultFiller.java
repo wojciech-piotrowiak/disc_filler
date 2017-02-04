@@ -8,6 +8,9 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class DefaultFiller implements Filler {
     private int DEFAULT_FILE_SIZE = 2_400_000;
@@ -44,10 +47,10 @@ public class DefaultFiller implements Filler {
 
     private void writeToDisk(String directory, Integer sizeInBytes) throws IOException {
         //FAT32 has a limit of files (170) on base level, putting files into new catalog fix this problem
-        String dedicatedCatalog = directory + File.separator + "fill";
-        File newDir = new File(dedicatedCatalog);
+        Path dedicatedCatalog = Paths.get(directory, "fill");
+        File newDir = new File(dedicatedCatalog.toString());
         if (newDir.exists() || newDir.mkdir()) {
-            directory = dedicatedCatalog;
+            directory = dedicatedCatalog.toString();
         } else {
             return;
         }
@@ -75,13 +78,11 @@ public class DefaultFiller implements Filler {
     }
 
     private void saveBytesIntoFile(String directory, int totalLength) throws IOException {
-        String name = directory + File.separator + System.nanoTime();
+        Path name = Paths.get(directory, System.nanoTime() + "");
         try (
-                FileOutputStream outputStream = new FileOutputStream(name);
+                FileOutputStream outputStream = new FileOutputStream(name.toString());
                 BufferedOutputStream out = new BufferedOutputStream(outputStream)) {
-
             writeBufferIntoStream(out, totalLength);
-            out.flush();
         }
     }
 

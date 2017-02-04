@@ -105,14 +105,13 @@ public class FillerTest {
     }
 
     private String getTargetPath() {
-        Path currentRelativePath = Paths.get("");
-        return currentRelativePath.toAbsolutePath().toString() + File.separator + "target";
+        Path currentRelativePath = Paths.get("").toAbsolutePath().resolve(Paths.get("target"));
+        return currentRelativePath.toString();
     }
 
     private String getTestPath() {
-        Path currentRelativePath = Paths.get("");
-        return currentRelativePath.toAbsolutePath().toString() + File.separator + "src" + File.separator +
-                "test" + File.separator + "test" + File.separator + "example.txt";
+        Path currentRelativePath = Paths.get("").toAbsolutePath().resolve(Paths.get("src", "test", "test", "example.txt"));
+        return currentRelativePath.toString();
     }
 
     private class TestNotificator implements Notificator {
