@@ -8,8 +8,7 @@ public class ConsoleNotificator implements Notificator {
 
     @Override
     public void start(int steps) {
-        progressBar = new ProgressBar("Filling data", steps);
-        progressBar.start();
+        progressBar = new ProgressBar("Filling data", steps).start();
     }
 
     @Override
