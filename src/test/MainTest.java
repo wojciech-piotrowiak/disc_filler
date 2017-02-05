@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
@@ -34,13 +35,13 @@ public class MainTest {
     public void fillWithDefinedLengthTest() throws IOException {
         Main.setFiller(filler);
         Main.main(new String[]{"X:\\", "22"});
-        verify(filler).fillDirectoryWithDefinedLength(anyString(), anyInt());
+        verify(filler).fillDirectoryWithDefinedLength(anyString(), anyLong());
     }
 
     @Test
     public void fillWithDefinedLengthAndFileSizeTest() throws IOException {
         Main.setFiller(filler);
         Main.main(new String[]{"X:\\", "22","11"});
-        verify(filler).fillDirectoryWithDefinedLengthAndFileSize(anyString(),anyInt(),anyInt());
+        verify(filler).fillDirectoryWithDefinedLengthAndFileSize(anyString(),anyLong(),anyInt());
     }
 }

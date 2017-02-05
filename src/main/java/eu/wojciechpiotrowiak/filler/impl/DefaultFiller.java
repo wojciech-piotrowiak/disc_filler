@@ -4,11 +4,7 @@ package eu.wojciechpiotrowiak.filler.impl;
 import eu.wojciechpiotrowiak.filler.Filler;
 import eu.wojciechpiotrowiak.notifications.Notificator;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -24,12 +20,11 @@ public class DefaultFiller implements Filler {
     public void fillDirectory(String path) throws IOException {
         File file = new File(path);
         if (file.isDirectory()) {
-            Long freeSpace = file.getFreeSpace();
-            writeToDisk(path, freeSpace.intValue());
+            writeToDisk(path, file.getFreeSpace());
         }
     }
 
-    public void fillDirectoryWithDefinedLength(String path, Integer length) throws IOException {
+    public void fillDirectoryWithDefinedLength(String path, long length) throws IOException {
         File file = new File(path);
         if (file.isDirectory()) {
             writeToDisk(path, length);
@@ -37,7 +32,7 @@ public class DefaultFiller implements Filler {
     }
 
     @Override
-    public void fillDirectoryWithDefinedLengthAndFileSize(String path, Integer length, Integer fileSize) throws IOException {
+    public void fillDirectoryWithDefinedLengthAndFileSize(String path, long length, Integer fileSize) throws IOException {
         File file = new File(path);
         if (file.isDirectory()) {
             setFileSize(fileSize);
@@ -45,50 +40,53 @@ public class DefaultFiller implements Filler {
         }
     }
 
-    private void writeToDisk(String directory, Integer sizeInBytes) throws IOException {
-        //FAT32 has a limit of files (170) on base level, putting files into new catalog fix this problem
-        Path dedicatedCatalog = Paths.get(directory, "fill");
-        File newDir = new File(dedicatedCatalog.toString());
-        if (newDir.exists() || newDir.mkdir()) {
-            directory = dedicatedCatalog.toString();
-        } else {
-            return;
-        }
+    private void writeToDisk(final String directory, final long requestedSpaceToFill) throws IOException {
+        final String dedicatedCatalog = getFinalPath(directory);
 
-        int fileNumber = (int) Math.ceil(sizeInBytes / getFileSize());
+        int fileNumber = (int) Math.ceil(requestedSpaceToFill / getFileSize());
+        if (fileNumber == 0) fileNumber = 1;
         notificator.start(fileNumber);
-        while (sizeInBytes >= getFileSize()) {
-            sizeInBytes -= getFileSize();
-            saveBytesIntoFile(directory, getFileSize());
 
+        for (int c = 0; c < fileNumber; c++) {
+            saveBytesIntoFile(dedicatedCatalog, getFileSize());
             notificator.step();
         }
+
         long freeSpace = new File(directory).getFreeSpace();
-        int leftover = sizeInBytes;
+        long leftover = requestedSpaceToFill - (getFileSize() * fileNumber);
 
         if (leftover > freeSpace) {
-            leftover = (int) freeSpace;
+            leftover = freeSpace;
         }
         if (leftover > 0) {
-            saveBytesIntoFile(directory, leftover);
+            saveBytesIntoFile(dedicatedCatalog, leftover);
             notificator.step();
         }
 
         notificator.stop();
     }
 
-    private void saveBytesIntoFile(String directory, int totalLength) throws IOException {
+    private void saveBytesIntoFile(String directory, long totalLength) {
         Path name = Paths.get(directory, System.nanoTime() + "");
         try (
                 FileOutputStream outputStream = new FileOutputStream(name.toString());
                 BufferedOutputStream out = new BufferedOutputStream(outputStream)) {
-            writeBufferIntoStream(out, totalLength);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((int) totalLength);
+            out.write(byteArrayOutputStream.toByteArray());
+
+        } catch (IOException e) {
+            System.out.print("Could not create content files");
         }
     }
 
-    private void writeBufferIntoStream(BufferedOutputStream out, int totalLength) throws IOException {
-        byte[] buffer = new byte[totalLength];
-        out.write(buffer, 0, totalLength);
+    private String getFinalPath(String initialPath) throws IOException {
+        //FAT32 has a limit of files (170) on base level, putting files into new catalog fix this problem
+        Path dedicatedCatalog = Paths.get(initialPath, "fill");
+        File newDir = new File(dedicatedCatalog.toString());
+        if (newDir.exists() || newDir.mkdir()) {
+            return dedicatedCatalog.toString();
+        }
+        throw new IOException("Could not resolve or create result catalog");
     }
 
     public Integer getFileSize() {

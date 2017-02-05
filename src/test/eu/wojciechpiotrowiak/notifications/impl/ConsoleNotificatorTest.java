@@ -8,9 +8,10 @@ public class ConsoleNotificatorTest {
     @Test
     public void step() throws Exception {
         Notificator notificator = new ConsoleNotificator();
+        int stepsCount = 50;
 
-        notificator.start(250);
-        for (int i = 0; i < 250; i++) {
+        notificator.start(stepsCount);
+        for (int i = 0; i < stepsCount; i++) {
             notificator.step();
             waitSomeTime();
         }

@@ -11,24 +11,28 @@ public class Main {
     private static Filler filler = new DefaultFiller(new ConsoleNotificator());
 
     public static void main(String[] args) {
-        if (args.length == 0)
+        if (args.length == 0) {
+            System.out.println("None of parameters defined. 1-directory, 2-Amount of bytes to fill, 3-File size");
             return;
+        }
         try {
             final String directory = args[0];
             if (args.length == 1) {
                 filler.fillDirectory(directory);
             } else if (args.length == 2) {
-                final String length = args[1];
-                filler.fillDirectoryWithDefinedLength(directory, Integer.valueOf(length));
+                filler.fillDirectoryWithDefinedLength(directory, getLength(args[1]));
             } else if (args.length == 3) {
-                final String length = args[1];
                 final String fileSize = args[2];
-                filler.fillDirectoryWithDefinedLengthAndFileSize(directory, Integer.valueOf(length), Integer.valueOf(fileSize));
+                filler.fillDirectoryWithDefinedLengthAndFileSize(directory, getLength(args[1]), Integer.valueOf(fileSize));
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static Long getLength(String length) {
+        return Long.valueOf(length);
     }
 
     public static void setFiller(Filler inputFiller) {
