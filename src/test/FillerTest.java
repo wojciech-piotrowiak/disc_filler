@@ -12,12 +12,20 @@ import java.nio.file.Paths;
 
 
 public class FillerTest {
+
+    @Test(expected = IOException.class)
+    public void wrongDestinationTest() throws IOException {
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
+        //usually programs cannot perform any operations on FS root
+        filler.fillDirectoryWithDefinedLength(getRootPath(), 10L);
+    }
+
     @Test
     public void testLessThanOneMB() throws IOException {
         int fileNumberBeforeFill = currentFileNumber();
 
         DefaultFiller filler = new DefaultFiller(new TestNotificator());
-        filler.fillDirectoryWithDefinedLength(getTargetPath(), 10l);
+        filler.fillDirectoryWithDefinedLength(getTargetPath(), 10L);
 
         Assert.assertEquals(++fileNumberBeforeFill, currentFileNumber());
     }
@@ -27,7 +35,7 @@ public class FillerTest {
         int fileNumberBeforeFill = currentFileNumber();
 
         DefaultFiller filler = new DefaultFiller(new TestNotificator());
-        filler.fillDirectoryWithDefinedLength(getTargetPath(), 10_000_000l);
+        filler.fillDirectoryWithDefinedLength(getTargetPath(), 10_000_000L);
 
         Assert.assertTrue(currentFileNumber() - ++fileNumberBeforeFill > 1);
     }
@@ -37,7 +45,7 @@ public class FillerTest {
         int fileNumberBeforeFill = currentFileNumber();
 
         DefaultFiller filler = new DefaultFiller(new TestNotificator());
-        filler.fillDirectoryWithDefinedLength(getTestPath(), 10_000_000l);
+        filler.fillDirectoryWithDefinedLength(getTestPath(), 10_000_000L);
 
         Assert.assertEquals(fileNumberBeforeFill, currentFileNumber());
     }
@@ -57,7 +65,7 @@ public class FillerTest {
         //less than normal file size
         TestNotificator notificator = new TestNotificator();
         DefaultFiller filler = new DefaultFiller(notificator);
-        filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_399_00l);
+        filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_399_00L);
 
         Assert.assertEquals(1, notificator.stepsDeclared);
         Assert.assertEquals(1, notificator.stepsMarked);
@@ -68,7 +76,7 @@ public class FillerTest {
         //less than normal file size
         TestNotificator notificator = new TestNotificator();
         DefaultFiller filler = new DefaultFiller(notificator);
-        filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_400_000l);
+        filler.fillDirectoryWithDefinedLength(getTargetPath(), 2_400_000L);
 
         Assert.assertEquals(1, notificator.stepsDeclared);
         Assert.assertEquals(1, notificator.stepsMarked);
@@ -79,7 +87,7 @@ public class FillerTest {
         //requested file length is less than default file size
         TestNotificator notificator = new TestNotificator();
         DefaultFiller filler = new DefaultFiller(notificator);
-        filler.fillDirectoryWithDefinedLengthAndFileSize(getTargetPath(), 10l, 22);
+        filler.fillDirectoryWithDefinedLengthAndFileSize(getTargetPath(), 10L, 22);
 
         Assert.assertEquals(1, notificator.stepsDeclared);
         Assert.assertEquals(1, notificator.stepsMarked);
@@ -90,10 +98,24 @@ public class FillerTest {
         int fileNumberBeforeFill = currentFileNumber();
 
         DefaultFiller filler = new DefaultFiller(new TestNotificator());
-        filler.fillDirectoryWithDefinedLengthAndFileSize(getTestPath(), 10l, 10);
+        filler.fillDirectoryWithDefinedLengthAndFileSize(getTestPath(), 10L, 10);
 
         Assert.assertEquals(fileNumberBeforeFill, currentFileNumber());
     }
+
+    @Test(expected = IOException.class)
+    public void negativeParameter() throws IOException {
+        TestNotificator notificator = new TestNotificator();
+        DefaultFiller filler = new DefaultFiller(notificator);
+        filler.fillDirectoryWithDefinedLength(getTargetPath(), -2L);
+    }
+
+    @Test(expected = IOException.class)
+    public void negativeParameters() throws IOException {
+        DefaultFiller filler = new DefaultFiller(new TestNotificator());
+        filler.fillDirectoryWithDefinedLengthAndFileSize(getTestPath(), -10L, -10);
+    }
+
 
     private int currentFileNumber() {
         File file = new File(getTargetPath() + File.separator + "fill");
@@ -112,6 +134,11 @@ public class FillerTest {
     private String getTestPath() {
         Path currentRelativePath = Paths.get("").toAbsolutePath().resolve(Paths.get("src", "test", "test", "example.txt"));
         return currentRelativePath.toString();
+    }
+
+    private String getRootPath() {
+        Path currentRelativePath = Paths.get("").toAbsolutePath().resolve(Paths.get("src", "test", "test", "example.txt"));
+        return currentRelativePath.getRoot().toString();
     }
 
     private class TestNotificator implements Notificator {

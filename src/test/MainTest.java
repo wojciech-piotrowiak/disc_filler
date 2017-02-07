@@ -12,6 +12,7 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.verifyZeroInteractions;
 
 
 public class MainTest {
@@ -41,7 +42,22 @@ public class MainTest {
     @Test
     public void fillWithDefinedLengthAndFileSizeTest() throws IOException {
         Main.setFiller(filler);
-        Main.main(new String[]{"X:\\", "22","11"});
-        verify(filler).fillDirectoryWithDefinedLengthAndFileSize(anyString(),anyLong(),anyInt());
+        Main.main(new String[]{"X:\\", "22", "11"});
+        verify(filler).fillDirectoryWithDefinedLengthAndFileSize(anyString(), anyLong(), anyInt());
+    }
+
+    @Test
+    public void badParameterTest() throws IOException {
+        Main.setFiller(filler);
+        Main.main(new String[]{"X:\\", "A"});
+        verifyZeroInteractions(filler);
+        //verify(filler).fillDirectoryWithDefinedLength(anyString(), anyLong());
+    }
+
+    @Test
+    public void badParametersTest() throws IOException {
+        Main.setFiller(filler);
+        Main.main(new String[]{"X:\\", "22", "CC"});
+        verifyZeroInteractions(filler);//.fillDirectoryWithDefinedLengthAndFileSize(anyString(),anyLong(),anyInt());
     }
 }

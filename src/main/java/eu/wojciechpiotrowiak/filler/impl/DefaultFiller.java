@@ -7,6 +7,7 @@ import eu.wojciechpiotrowiak.notifications.Notificator;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class DefaultFiller implements Filler {
     private int DEFAULT_FILE_SIZE = 2_400_000;
@@ -25,6 +26,9 @@ public class DefaultFiller implements Filler {
     }
 
     public void fillDirectoryWithDefinedLength(String path, long length) throws IOException {
+        if (length <= 0) {
+            throw new IOException("Content length should be positive number!");
+        }
         File file = new File(path);
         if (file.isDirectory()) {
             writeToDisk(path, length);
@@ -33,6 +37,9 @@ public class DefaultFiller implements Filler {
 
     @Override
     public void fillDirectoryWithDefinedLengthAndFileSize(String path, long length, Integer fileSize) throws IOException {
+        if (length <= 0 || fileSize <= 0) {
+            throw new IOException("Content length and file size should be positive number!");
+        }
         File file = new File(path);
         if (file.isDirectory()) {
             setFileSize(fileSize);
@@ -58,21 +65,26 @@ public class DefaultFiller implements Filler {
         if (leftover > freeSpace) {
             leftover = freeSpace;
         }
-        if (leftover > 0) {
-            saveBytesIntoFile(dedicatedCatalog, leftover);
+        //to avoid negative number when casting value below
+        if (leftover > 0 && leftover < Integer.MAX_VALUE) {
+            saveBytesIntoFile(dedicatedCatalog, (int) leftover);
             notificator.step();
         }
 
         notificator.stop();
     }
 
-    private void saveBytesIntoFile(String directory, long totalLength) {
+    private void saveBytesIntoFile(String directory, int totalLength) {
         Path name = Paths.get(directory, System.nanoTime() + "");
         try (
                 FileOutputStream outputStream = new FileOutputStream(name.toString());
-                BufferedOutputStream out = new BufferedOutputStream(outputStream)) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((int) totalLength);
-            out.write(byteArrayOutputStream.toByteArray());
+                BufferedOutputStream out = new BufferedOutputStream(outputStream);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(totalLength)) {
+            byte[] b = new byte[totalLength];
+            Arrays.fill(b, (byte) 0b1);
+            byteArrayOutputStream.write(b);
+            byteArrayOutputStream.writeTo(out);
+            //out.write(byteArrayOutputStream.toByteArray());
 
         } catch (IOException e) {
             System.out.print("Could not create content files");

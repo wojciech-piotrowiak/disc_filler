@@ -18,6 +18,7 @@ public class ConsoleNotificator implements Notificator {
 
     @Override
     public void stop() {
-        progressBar.stop();
+        if (progressBar != null)
+            progressBar.stop();
     }
 }

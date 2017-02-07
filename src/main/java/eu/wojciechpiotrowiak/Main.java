@@ -8,7 +8,8 @@ import java.io.IOException;
 
 public class Main {
 
-    private static Filler filler = new DefaultFiller(new ConsoleNotificator());
+    public static final ConsoleNotificator NOTIFICATOR = new ConsoleNotificator();
+    private static Filler filler = new DefaultFiller(NOTIFICATOR);
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -28,6 +29,11 @@ public class Main {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Did you entered letters in number parameter?");
+            e.printStackTrace();
+        } finally {
+            NOTIFICATOR.stop();
         }
     }
 
